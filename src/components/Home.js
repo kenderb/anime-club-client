@@ -1,5 +1,13 @@
 import React from 'react';
+import Registration from './auth/Registration';
 
-const Home = () => (<h1>Hello from Home component</h1>);
+const Home = () => (
+  <div>
+    <h1>
+      Home
+    </h1>
+    <Registration />
+  </div>
+);
 
 export default Home;
