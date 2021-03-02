@@ -1,18 +1,31 @@
+/* eslint-disable camelcase */
 import magaClub from '../api/mangaClub';
 
 import { registerUser } from './actionTypes';
 
 const createUser = userData => async dispatch => {
   try {
-    console.log(userData);
+    const {
+      name, password, passwordConfirmation, email,
+      registrationErrors, userType,
+    } = userData;
+    console.log('form createUser action: ', userData);
     const response = await magaClub.post('/registrations', {
-      user: 'modified',
+      user: {
+        name,
+        email,
+        password,
+        password_confirmation: passwordConfirmation,
+        user_type: userType,
+      },
     }, {
       withCredentials: true,
     });
+    console.log(response);
     dispatch(registerUser(response));
-    return true;
+    return registrationErrors;
   } catch (error) {
+    console.log(error.messages);
     return error;
   }
 };

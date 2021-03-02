@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import PropType from 'prop-types';
 import createUser from '../../actions';
 
 const Registration = ({ createUser }) => {
@@ -15,7 +16,6 @@ const Registration = ({ createUser }) => {
   const handleSummit = e => {
     e.preventDefault();
     createUser(userData);
-    console.log('submiting..', userData);
   };
 
   const handleOnchange = e => {
@@ -58,6 +58,10 @@ const Registration = ({ createUser }) => {
       <button type="submit">Submit</button>
     </form>
   );
+};
+
+Registration.propTypes = {
+  createUser: PropType.func.isRequired,
 };
 
 export default connect(null, { createUser })(Registration);
