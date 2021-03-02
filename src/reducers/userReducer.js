@@ -1,9 +1,16 @@
 import REGISTER_USER from '../actions/constans';
 
-const userReducer = (state = {}, action) => {
+const initialState = {
+  loggedIn: false,
+};
+
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case REGISTER_USER:
-      return action.payload;
+      return {
+        loggedIn: !state.loggedIn,
+        ...action.payload,
+      };
     default:
       return state;
   }

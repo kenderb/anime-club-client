@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import magaClub from '../api/mangaClub';
 
 import { registerUser } from './actionTypes';
@@ -9,7 +8,6 @@ const createUser = userData => async dispatch => {
       name, password, passwordConfirmation, email,
       registrationErrors, userType,
     } = userData;
-    console.log('form createUser action: ', userData);
     const response = await magaClub.post('/registrations', {
       user: {
         name,
@@ -21,8 +19,7 @@ const createUser = userData => async dispatch => {
     }, {
       withCredentials: true,
     });
-    console.log(response);
-    dispatch(registerUser(response));
+    dispatch(registerUser(response.data.user));
     return registrationErrors;
   } catch (error) {
     console.log(error.messages);

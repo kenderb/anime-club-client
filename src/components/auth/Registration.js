@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropType from 'prop-types';
 import createUser from '../../actions';
 
-const Registration = ({ createUser }) => {
+const Registration = ({ user, createUser }) => {
   const [userData, setUserData] = useState({
     name: '',
     email: '',
@@ -26,42 +26,55 @@ const Registration = ({ createUser }) => {
   };
 
   return (
-    <form onSubmit={e => handleSummit(e)}>
-      <input
-        type="text"
-        placeholder="name"
-        value={userData.name}
-        name="name"
-        onChange={e => handleOnchange(e)}
-      />
-      <input
-        type="email"
-        placeholder="email"
-        value={userData.email}
-        name="email"
-        onChange={e => handleOnchange(e)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={userData.password}
-        name="password"
-        onChange={e => handleOnchange(e)}
-      />
-      <input
-        type="password"
-        placeholder="Password confirmation"
-        value={userData.passwordConfirmation}
-        name="passwordConfirmation"
-        onChange={e => handleOnchange(e)}
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <>
+      <h1>
+        User logged in?:
+        {' '}
+        {`${user.loggedIn}`}
+      </h1>
+      <form onSubmit={e => handleSummit(e)}>
+
+        <input
+          type="text"
+          placeholder="name"
+          value={userData.name}
+          name="name"
+          onChange={e => handleOnchange(e)}
+        />
+        <input
+          type="email"
+          placeholder="email"
+          value={userData.email}
+          name="email"
+          onChange={e => handleOnchange(e)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={userData.password}
+          name="password"
+          onChange={e => handleOnchange(e)}
+        />
+        <input
+          type="password"
+          placeholder="Password confirmation"
+          value={userData.passwordConfirmation}
+          name="passwordConfirmation"
+          onChange={e => handleOnchange(e)}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </>
   );
 };
 
 Registration.propTypes = {
   createUser: PropType.func.isRequired,
+  user: PropType.instanceOf(Object).isRequired,
 };
 
-export default connect(null, { createUser })(Registration);
+const mapStateToprops = state => ({
+  user: state.user,
+});
+
+export default connect(mapStateToprops, { createUser })(Registration);
