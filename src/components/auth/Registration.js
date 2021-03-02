@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import createUser from '../../actions';
 
-const Registration = () => {
+const Registration = ({ createUser }) => {
   const [userData, setUserData] = useState({
     name: '',
     email: '',
@@ -12,6 +14,7 @@ const Registration = () => {
 
   const handleSummit = e => {
     e.preventDefault();
+    createUser(userData);
     console.log('submiting..', userData);
   };
 
@@ -57,4 +60,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default connect(null, { createUser })(Registration);
