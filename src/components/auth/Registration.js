@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import createUser from '../../actions';
 
 const Registration = ({ user, createUser }) => {
@@ -24,7 +25,9 @@ const Registration = ({ user, createUser }) => {
       [e.target.name]: e.target.value,
     });
   };
-
+  if (user.loggedIn) {
+    return <Redirect to="/dashboard" />;
+  }
   return (
     <>
       <h1>
