@@ -1,6 +1,6 @@
 import magaClub from '../api/mangaClub';
 
-import { registerUser, logInUser } from './actionTypes';
+import { registerUser, logInUser, userLoggedIn } from './actionTypes';
 
 export const createUser = userData => async dispatch => {
   try {
@@ -48,6 +48,22 @@ export const loginUserAction = userData => async dispatch => {
     console.log(response);
     if (response.data.logged_in) {
       dispatch(logInUser(response.data.user));
+    } else {
+      return false;
+    }
+    return true;
+  } catch (error) {
+    console.log(error.messages);
+    return error;
+  }
+};
+
+export const isLoggedIn = () => async dispatch => {
+  try {
+    const response = await magaClub.get('/logged_in', { withCredentials: true });
+    console.log(response);
+    if (response.data.logged_in) {
+      dispatch(userLoggedIn(response.data.user));
     } else {
       return false;
     }

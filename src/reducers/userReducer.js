@@ -1,4 +1,4 @@
-import { REGISTER_USER, LOGIN_USER } from '../actions/constans';
+import { REGISTER_USER, LOGIN_USER, IS_LOGGED_IN } from '../actions/constans';
 
 const initialState = {
   loggedIn: false,
@@ -12,6 +12,11 @@ const userReducer = (state = initialState, action) => {
         ...action.payload,
       };
     case LOGIN_USER:
+      return {
+        loggedIn: true,
+        ...action.payload,
+      };
+    case IS_LOGGED_IN:
       return {
         loggedIn: true,
         ...action.payload,
