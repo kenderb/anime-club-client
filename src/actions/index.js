@@ -1,7 +1,7 @@
 import magaClub from '../api/mangaClub';
 
 import {
-  registerUser, logInUser, userLoggedIn, userLogout,
+  loginSuccess, userLogout,
 } from './actionTypes';
 
 export const createUser = userData => async dispatch => {
@@ -21,15 +21,13 @@ export const createUser = userData => async dispatch => {
     }, {
       withCredentials: true,
     });
-    console.log(response);
     if (response.data.status === 'created') {
-      dispatch(registerUser(response.data.user));
+      dispatch(loginSuccess(response.data.user));
     } else {
       return false;
     }
     return true;
   } catch (error) {
-    console.log(error.messages);
     return error;
   }
 };
@@ -47,15 +45,13 @@ export const loginUserAction = userData => async dispatch => {
     }, {
       withCredentials: true,
     });
-    console.log(response);
     if (response.data.logged_in) {
-      dispatch(logInUser(response.data.user));
+      dispatch(loginSuccess(response.data.user));
     } else {
       return false;
     }
     return true;
   } catch (error) {
-    console.log(error.messages);
     return error;
   }
 };
@@ -63,15 +59,13 @@ export const loginUserAction = userData => async dispatch => {
 export const isLoggedIn = () => async dispatch => {
   try {
     const response = await magaClub.get('/logged_in', { withCredentials: true });
-    console.log(response);
     if (response.data.logged_in) {
-      dispatch(userLoggedIn(response.data.user));
+      dispatch(loginSuccess(response.data.user));
     } else {
       return false;
     }
     return true;
   } catch (error) {
-    console.log(error.messages);
     return error;
   }
 };
@@ -79,7 +73,6 @@ export const isLoggedIn = () => async dispatch => {
 export const logoutUser = () => async dispatch => {
   try {
     const response = await magaClub.delete('/logout', { withCredentials: true });
-    console.log(response);
     if (response.data.logged_out) {
       dispatch(userLogout());
     } else {
@@ -87,7 +80,6 @@ export const logoutUser = () => async dispatch => {
     }
     return true;
   } catch (error) {
-    console.log(error.messages);
     return error;
   }
 };

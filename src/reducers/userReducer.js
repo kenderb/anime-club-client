@@ -1,5 +1,5 @@
 import {
-  REGISTER_USER, LOGIN_USER, IS_LOGGED_IN, LOGOUT_USER,
+  LOGIN_SUCCESS, LOGOUT_USER,
 } from '../actions/constans';
 
 const initialState = {
@@ -8,17 +8,7 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case REGISTER_USER:
-      return {
-        loggedIn: true,
-        ...action.payload,
-      };
-    case LOGIN_USER:
-      return {
-        loggedIn: true,
-        ...action.payload,
-      };
-    case IS_LOGGED_IN:
+    case LOGIN_SUCCESS:
       return {
         loggedIn: true,
         ...action.payload,
