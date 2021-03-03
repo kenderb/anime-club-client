@@ -4,6 +4,7 @@ import PropType from 'prop-types';
 import { connect } from 'react-redux';
 import LogIn from './auth/LogIn';
 import Dashboard from './Dashboard';
+import NavBar from './NavBar';
 import Home from './Home';
 import { isLoggedIn } from '../actions';
 
@@ -13,6 +14,7 @@ const App = ({ isLoggedIn }) => {
   }, []);
   return (
     <Router>
+      <NavBar />
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/login" component={LogIn} exact />
