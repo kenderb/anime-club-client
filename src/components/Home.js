@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Registration from './auth/Registration';
 
 const Home = () => (
@@ -7,6 +8,9 @@ const Home = () => (
       Home
     </h1>
     <Registration />
+    <Link to="/login">
+      Login
+    </Link>
   </div>
 );
 

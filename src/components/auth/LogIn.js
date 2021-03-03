@@ -2,21 +2,18 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import { createUser } from '../../actions';
+import { loginUserAction } from '../../actions';
 
-const Registration = ({ user, createUser }) => {
+const LogIn = ({ user, loginUserAction }) => {
   const [userData, setUserData] = useState({
-    name: '',
     email: '',
     password: '',
-    passwordConfirmation: '',
-    userType: 'user',
-    registrationErrors: '',
+    logInErrors: '',
   });
 
   const handleSummit = e => {
     e.preventDefault();
-    createUser(userData);
+    loginUserAction(userData);
   };
 
   const handleOnchange = e => {
@@ -38,13 +35,6 @@ const Registration = ({ user, createUser }) => {
       <form onSubmit={e => handleSummit(e)}>
 
         <input
-          type="text"
-          placeholder="name"
-          value={userData.name}
-          name="name"
-          onChange={e => handleOnchange(e)}
-        />
-        <input
           type="email"
           placeholder="email"
           value={userData.email}
@@ -58,21 +48,14 @@ const Registration = ({ user, createUser }) => {
           name="password"
           onChange={e => handleOnchange(e)}
         />
-        <input
-          type="password"
-          placeholder="Password confirmation"
-          value={userData.passwordConfirmation}
-          name="passwordConfirmation"
-          onChange={e => handleOnchange(e)}
-        />
-        <button type="submit">Submit</button>
+        <button type="submit">Login</button>
       </form>
     </>
   );
 };
 
-Registration.propTypes = {
-  createUser: PropType.func.isRequired,
+LogIn.propTypes = {
+  loginUserAction: PropType.func.isRequired,
   user: PropType.instanceOf(Object).isRequired,
 };
 
@@ -80,4 +63,4 @@ const mapStateToprops = state => ({
   user: state.user,
 });
 
-export default connect(mapStateToprops, { createUser })(Registration);
+export default connect(mapStateToprops, { loginUserAction })(LogIn);

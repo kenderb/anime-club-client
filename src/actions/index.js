@@ -1,12 +1,12 @@
 import magaClub from '../api/mangaClub';
 
-import { registerUser } from './actionTypes';
+import { registerUser, logInUser } from './actionTypes';
 
-const createUser = userData => async dispatch => {
+export const createUser = userData => async dispatch => {
   try {
     const {
       name, password, passwordConfirmation, email,
-      registrationErrors, userType,
+      userType,
     } = userData;
     const response = await magaClub.post('/registrations', {
       user: {
@@ -19,12 +19,41 @@ const createUser = userData => async dispatch => {
     }, {
       withCredentials: true,
     });
-    dispatch(registerUser(response.data.user));
-    return registrationErrors;
+    console.log(response);
+    if (response.data.status === 'created') {
+      dispatch(registerUser(response.data.user));
+    } else {
+      return false;
+    }
+    return true;
   } catch (error) {
     console.log(error.messages);
     return error;
   }
 };
 
-export default createUser;
+export const loginUserAction = userData => async dispatch => {
+  try {
+    const {
+      password, email,
+    } = userData;
+    const response = await magaClub.post('/sessions', {
+      user: {
+        email,
+        password,
+      },
+    }, {
+      withCredentials: true,
+    });
+    console.log(response);
+    if (response.data.logged_in) {
+      dispatch(logInUser(response.data.user));
+    } else {
+      return false;
+    }
+    return true;
+  } catch (error) {
+    console.log(error.messages);
+    return error;
+  }
+};
