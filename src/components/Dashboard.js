@@ -7,10 +7,13 @@ const Dashboard = ({ user }) => {
   if (!user.loggedIn) return <Redirect to="/" />;
   return (
     <div>
-      User logged In ?:
-      {' '}
-      {`${user.loggedIn}`}
-      <h1>Hello from Dashboard component</h1>
+      <h1>
+        Hello
+        {' '}
+        {user.name}
+        {' '}
+        from Dashboard component
+      </h1>
     </div>
   );
 };
