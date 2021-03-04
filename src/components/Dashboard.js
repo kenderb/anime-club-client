@@ -43,8 +43,7 @@ const Dashboard = ({ user }) => {
       {animeList.map(anime => (
         <AnimeCard
           key={anime.id}
-          title={anime.title}
-          imageUrl={anime.imageUrl}
+          anime={anime}
         />
       ))}
     </div>
