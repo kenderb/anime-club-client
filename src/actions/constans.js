@@ -2,3 +2,4 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const SET_FAVORITE_ANIME = 'SET_FAVORITE_ANIME';
 export const GET_ALL_ANIMES = 'GET_ALL_ANIMES';
+export const GET_ANIME_DETAIL = 'GET_ANIME_DETAIL';

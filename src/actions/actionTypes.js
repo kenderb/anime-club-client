@@ -1,6 +1,7 @@
 import {
   LOGIN_SUCCESS, LOGOUT_USER,
   SET_FAVORITE_ANIME, GET_ALL_ANIMES,
+  GET_ANIME_DETAIL,
 } from './constans';
 
 export const loginSuccess = data => ({
@@ -19,5 +20,10 @@ export const setFavoriteAnimeUser = data => ({
 
 export const getAnimes = data => ({
   type: GET_ALL_ANIMES,
+  payload: data,
+});
+
+export const getAnimeDetail = data => ({
+  type: GET_ANIME_DETAIL,
   payload: data,
 });

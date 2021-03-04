@@ -2,15 +2,10 @@ import React from 'react';
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
 import './AnimeCard.style.css';
-import { setFavoriteAnime } from '../actions';
+import { Link } from 'react-router-dom';
 
-const AnimeCard = ({
-  user, anime, setFavoriteAnime, favorites,
-}) => {
+const AnimeCard = ({ anime }) => {
   const { title, url_image: imageUrl, id } = anime;
-  const handleFavorite = () => {
-    setFavoriteAnime({ userId: user.id, animeId: id });
-  };
 
   return (
     <div>
@@ -18,18 +13,12 @@ const AnimeCard = ({
         {title}
       </h1>
       <img src={imageUrl} alt={title} className="anime-image" />
-      {
-        favorites.includes(id) ? <button type="button" disabled> it is in your favorites</button>
-          : <button type="button" onClick={handleFavorite}>Mark as favorite</button>
-      }
+      <Link to={`/animes/${id}`}> See more </Link>
     </div>
   );
 };
 AnimeCard.propTypes = {
   anime: PropType.instanceOf(Object).isRequired,
-  setFavoriteAnime: PropType.func.isRequired,
-  user: PropType.instanceOf(Object).isRequired,
-  favorites: PropType.instanceOf(Array).isRequired,
 };
 
 const mapStateToprops = state => ({
@@ -37,4 +26,4 @@ const mapStateToprops = state => ({
   favorites: state.favorites,
 });
 
-export default connect(mapStateToprops, { setFavoriteAnime })(AnimeCard);
+export default connect(mapStateToprops)(AnimeCard);
