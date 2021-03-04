@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import AnimeCard from './AnimeCard';
+import { getFavoritesList } from '../actions';
 
 const animeList = [
   {
@@ -31,8 +32,13 @@ const animeList = [
     imageUrl: 'https://cdn.myanimelist.net/images/anime/1918/96303.jpg',
   },
 ];
-const Dashboard = ({ user }) => {
+const Dashboard = ({ user, getFavoritesList }) => {
   if (!user.loggedIn) return <Redirect to="/" />;
+
+  useEffect(() => {
+    getFavoritesList({ userId: user.id });
+  }, []);
+
   return (
     <div>
       <h1>
@@ -55,5 +61,6 @@ const mapStateToprops = state => ({
 
 Dashboard.propTypes = {
   user: PropType.instanceOf(Object).isRequired,
+  getFavoritesList: PropType.func.isRequired,
 };
-export default connect(mapStateToprops)(Dashboard);
+export default connect(mapStateToprops, { getFavoritesList })(Dashboard);

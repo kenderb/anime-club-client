@@ -94,8 +94,27 @@ export const setFavoriteAnime = data => async dispatch => {
         anime_id: animeId,
       },
     }, { withCredentials: true });
-    console.log(response.data.fivorites_user_list);
     if (response.data.status === 'created') {
+      dispatch(setFavoriteAnimeUser(response.data.fivorites_user_list));
+    } else {
+      return false;
+    }
+    return true;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const getFavoritesList = data => async dispatch => {
+  try {
+    const { userId } = data;
+    console.log(userId);
+    const response = await magaClub.post('/user_favorites', {
+      user: {
+        id: userId,
+      },
+    }, { withCredentials: true });
+    if (response.data.status === 200) {
       dispatch(setFavoriteAnimeUser(response.data.fivorites_user_list));
     } else {
       return false;

@@ -10,7 +10,6 @@ const AnimeCard = ({
   const { title, imageUrl, id } = anime;
   const handleFavorite = () => {
     setFavoriteAnime({ userId: user.id, animeId: id });
-    console.log(favorites);
   };
 
   return (
