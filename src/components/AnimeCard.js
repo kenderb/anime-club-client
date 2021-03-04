@@ -1,10 +1,13 @@
 import React from 'react';
 import PropType from 'prop-types';
+import { connect } from 'react-redux';
 import './AnimeCard.style.css';
+import { setFavoriteAnime } from '../actions';
 
-const AnimeCard = ({ anime }) => {
+const AnimeCard = ({ user, anime, setFavoriteAnime }) => {
   const { title, imageUrl, id } = anime;
   const handleFavorite = () => {
+    setFavoriteAnime({ userID: user.id, animeId: id });
     console.log(`Marking ---${title}--- as favorite with id of ${id}`);
   };
   return (
@@ -19,6 +22,12 @@ const AnimeCard = ({ anime }) => {
 };
 AnimeCard.propTypes = {
   anime: PropType.instanceOf(Object).isRequired,
+  setFavoriteAnime: PropType.func.isRequired,
+  user: PropType.instanceOf(Object).isRequired,
 };
 
-export default AnimeCard;
+const mapStateToprops = state => ({
+  user: state.user,
+});
+
+export default connect(mapStateToprops, { setFavoriteAnime })(AnimeCard);
