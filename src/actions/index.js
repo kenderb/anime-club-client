@@ -2,6 +2,7 @@ import magaClub from '../api/mangaClub';
 
 import {
   loginSuccess, userLogout,
+  setFavoriteAnimeUser,
 } from './actionTypes';
 
 export const createUser = userData => async dispatch => {
@@ -93,13 +94,12 @@ export const setFavoriteAnime = data => async dispatch => {
         anime_id: animeId,
       },
     }, { withCredentials: true });
-    console.log(response);
-    console.log(dispatch);
-    // if (response.data.status === 'created') {
-    //   dispatch(setFavoriteAnimeUser());
-    // } else {
-    //   return false;
-    // }
+    console.log(response.data.fivorites_user_list);
+    if (response.data.status === 'created') {
+      dispatch(setFavoriteAnimeUser(response.data.fivorites_user_list));
+    } else {
+      return false;
+    }
     return true;
   } catch (error) {
     return error;
