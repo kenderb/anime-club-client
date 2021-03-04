@@ -108,7 +108,6 @@ export const setFavoriteAnime = data => async dispatch => {
 export const getFavoritesList = data => async dispatch => {
   try {
     const { userId } = data;
-    console.log(userId);
     const response = await magaClub.post('/user_favorites', {
       user: {
         id: userId,
