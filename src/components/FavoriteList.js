@@ -2,10 +2,9 @@ import React from 'react';
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import animeList from './constans';
 
-const FavoriteList = ({ favorites, user }) => {
-  const myfavorites = animeList.filter(anime => favorites.includes(anime.id));
+const FavoriteList = ({ favorites, user, animes }) => {
+  const myfavorites = animes.filter(anime => favorites.includes(anime.id));
 
   if (!user.loggedIn) return <Redirect to="/" />;
 
@@ -18,7 +17,7 @@ const FavoriteList = ({ favorites, user }) => {
         {
         myfavorites.map(anime => (
           <li key={anime.id}>
-            <img src={anime.imageUrl} alt={anime.title} className="anime-image" />
+            <img src={anime.url_image} alt={anime.title} className="anime-image" />
           </li>
         ))
       }
@@ -30,10 +29,12 @@ const FavoriteList = ({ favorites, user }) => {
 const mapStateToprops = state => ({
   favorites: state.favorites,
   user: state.user,
+  animes: state.animes,
 });
 
 FavoriteList.propTypes = {
   favorites: PropType.instanceOf(Array).isRequired,
+  animes: PropType.instanceOf(Array).isRequired,
   user: PropType.instanceOf(Object).isRequired,
 };
 

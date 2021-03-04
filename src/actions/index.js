@@ -3,6 +3,7 @@ import magaClub from '../api/mangaClub';
 import {
   loginSuccess, userLogout,
   setFavoriteAnimeUser,
+  getAnimes,
 } from './actionTypes';
 
 export const createUser = userData => async dispatch => {
@@ -115,6 +116,21 @@ export const getFavoritesList = data => async dispatch => {
     }, { withCredentials: true });
     if (response.data.status === 200) {
       dispatch(setFavoriteAnimeUser(response.data.fivorites_user_list));
+    } else {
+      return false;
+    }
+    return true;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const getAllAnimes = () => async dispatch => {
+  try {
+    const response = await magaClub.get('/animes', { withCredentials: true });
+    console.log(response);
+    if (response.data.status === 200) {
+      dispatch(getAnimes(response.data.anime_list));
     } else {
       return false;
     }

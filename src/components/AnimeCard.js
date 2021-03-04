@@ -7,7 +7,7 @@ import { setFavoriteAnime } from '../actions';
 const AnimeCard = ({
   user, anime, setFavoriteAnime, favorites,
 }) => {
-  const { title, imageUrl, id } = anime;
+  const { title, url_image: imageUrl, id } = anime;
   const handleFavorite = () => {
     setFavoriteAnime({ userId: user.id, animeId: id });
   };

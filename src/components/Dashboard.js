@@ -3,14 +3,16 @@ import { connect } from 'react-redux';
 import PropType from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import AnimeCard from './AnimeCard';
-import animeList from './constans';
-import { getFavoritesList } from '../actions';
+import { getFavoritesList, getAllAnimes } from '../actions';
 
-const Dashboard = ({ user, getFavoritesList }) => {
+const Dashboard = ({
+  user, getFavoritesList, animes, getAllAnimes,
+}) => {
   if (!user.loggedIn) return <Redirect to="/" />;
 
   useEffect(() => {
     getFavoritesList({ userId: user.id });
+    getAllAnimes();
   }, []);
 
   return (
@@ -20,7 +22,7 @@ const Dashboard = ({ user, getFavoritesList }) => {
         {' '}
         {user.name}
       </h1>
-      {animeList.map(anime => (
+      {animes.map(anime => (
         <AnimeCard
           key={anime.id}
           anime={anime}
@@ -31,10 +33,16 @@ const Dashboard = ({ user, getFavoritesList }) => {
 };
 const mapStateToprops = state => ({
   user: state.user,
+  animes: state.animes,
 });
 
 Dashboard.propTypes = {
   user: PropType.instanceOf(Object).isRequired,
+  animes: PropType.instanceOf(Array),
   getFavoritesList: PropType.func.isRequired,
+  getAllAnimes: PropType.func.isRequired,
 };
-export default connect(mapStateToprops, { getFavoritesList })(Dashboard);
+Dashboard.defaultProps = {
+  animes: [],
+};
+export default connect(mapStateToprops, { getFavoritesList, getAllAnimes })(Dashboard);
