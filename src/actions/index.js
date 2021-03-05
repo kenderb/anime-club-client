@@ -28,6 +28,7 @@ export const createUser = userData => async dispatch => {
     } else {
       return false;
     }
+
     return true;
   } catch (error) {
     return error;
