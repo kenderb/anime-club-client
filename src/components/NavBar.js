@@ -20,6 +20,7 @@ const NavBar = ({ logoutUser, user }) => {
         {!user.loggedIn ? ' '
           : (
             <li>
+              <Link to="/favorites">My favorites</Link>
               <button type="button" onClick={handleonclick}> Logout </button>
             </li>
           )}

@@ -3,6 +3,7 @@ import magaClub from '../api/mangaClub';
 import {
   loginSuccess, userLogout,
   setFavoriteAnimeUser,
+  getAnimes, getAnimeDetail,
 } from './actionTypes';
 
 export const createUser = userData => async dispatch => {
@@ -94,7 +95,6 @@ export const setFavoriteAnime = data => async dispatch => {
         anime_id: animeId,
       },
     }, { withCredentials: true });
-    console.log(response.data.fivorites_user_list);
     if (response.data.status === 'created') {
       dispatch(setFavoriteAnimeUser(response.data.fivorites_user_list));
     } else {
@@ -106,16 +106,14 @@ export const setFavoriteAnime = data => async dispatch => {
   }
 };
 
-export const getUserFavorites = data => async dispatch => {
+export const getFavoritesList = data => async dispatch => {
   try {
     const { userId } = data;
-    console.log(data);
-    const response = await magaClub.get('/favorites', {
-      favorite: {
+    const response = await magaClub.post('/user_favorites', {
+      user: {
         id: userId,
       },
     }, { withCredentials: true });
-    console.log(response);
     if (response.data.status === 200) {
       dispatch(setFavoriteAnimeUser(response.data.fivorites_user_list));
     } else {
@@ -123,7 +121,34 @@ export const getUserFavorites = data => async dispatch => {
     }
     return true;
   } catch (error) {
-    console.log(error);
+    return error;
+  }
+};
+
+export const getAllAnimes = () => async dispatch => {
+  try {
+    const response = await magaClub.get('/animes', { withCredentials: true });
+    if (response.data.status === 200) {
+      dispatch(getAnimes(response.data.anime_list));
+    } else {
+      return false;
+    }
+    return true;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const fetchAnimeDetail = id => async dispatch => {
+  try {
+    const response = await magaClub.get(`/animes/${id}`, { withCredentials: true });
+    if (response.data.status === 200) {
+      dispatch(getAnimeDetail(response.data.anime));
+    } else {
+      return false;
+    }
+    return true;
+  } catch (error) {
     return error;
   }
 };
