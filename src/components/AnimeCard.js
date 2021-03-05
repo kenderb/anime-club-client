@@ -19,7 +19,10 @@ const AnimeCard = ({
         {title}
       </h1>
       <img src={imageUrl} alt={title} className="anime-image" />
-      <button type="button" onClick={handleFavorite}>Mark as favorite</button>
+      {
+        favorites.includes(id) ? <button type="button" disabled>In your favorites</button>
+          : <button type="button" onClick={handleFavorite}>Mark as favorite</button>
+      }
     </div>
   );
 };

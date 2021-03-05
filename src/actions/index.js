@@ -105,3 +105,25 @@ export const setFavoriteAnime = data => async dispatch => {
     return error;
   }
 };
+
+export const getUserFavorites = data => async dispatch => {
+  try {
+    const { userId } = data;
+    console.log(data);
+    const response = await magaClub.get('/favorites', {
+      favorite: {
+        id: userId,
+      },
+    }, { withCredentials: true });
+    console.log(response);
+    if (response.data.status === 200) {
+      dispatch(setFavoriteAnimeUser(response.data.fivorites_user_list));
+    } else {
+      return false;
+    }
+    return true;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};
