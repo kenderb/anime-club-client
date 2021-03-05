@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
-import LogIn from './auth/LogIn';
+import LogIn from './auth/loging/LogIn';
 import Dashboard from './Dashboard';
 import FavoriteList from './FavoriteList';
 import NavBar from './NavBar';

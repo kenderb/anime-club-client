@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import { loginUserAction } from '../../actions';
+import { loginUserAction } from '../../../actions';
+import './Login.style.css';
 
 const LogIn = ({ user, loginUserAction }) => {
   const [userData, setUserData] = useState({
@@ -26,7 +27,7 @@ const LogIn = ({ user, loginUserAction }) => {
     return <Redirect to="/dashboard" />;
   }
   return (
-    <>
+    <main className="login-container">
       <h1>
         User logged in?:
         {' '}
@@ -50,7 +51,7 @@ const LogIn = ({ user, loginUserAction }) => {
         />
         <button type="submit">Login</button>
       </form>
-    </>
+    </main>
   );
 };
 
