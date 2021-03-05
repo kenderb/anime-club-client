@@ -12,6 +12,7 @@ export const createUser = userData => async dispatch => {
       name, password, passwordConfirmation, email,
       userType,
     } = userData;
+
     const response = await magaClub.post('/registrations', {
       user: {
         name,
