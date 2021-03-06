@@ -4,4 +4,12 @@
   list-style: none;
   padding-bottom: 2em;
   padding-top: 1em;
+  scrollbar-width: none;
+}
+.anime-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.dashboard-title {
+  font-weight: 300;
+  text-align: center;
 }

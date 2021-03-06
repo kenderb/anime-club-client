@@ -10,9 +10,15 @@
   background: white;
   box-shadow: #c0c0c0 10px 9px 30px;
 }
+
 .anime-card h1 {
   font-size: 1em;
 }
 .anime-card p {
   padding: 1em;
+}
+.anime-card a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 400;
 }
