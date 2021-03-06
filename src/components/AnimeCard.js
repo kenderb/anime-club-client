@@ -8,13 +8,13 @@ const AnimeCard = ({ anime }) => {
   const { title, url_image: imageUrl, id } = anime;
 
   return (
-    <div>
+    <li className="anime-card">
       <h1>
         {title}
       </h1>
       <img src={imageUrl} alt={title} className="anime-image" />
       <Link to={`/animes/${id}`}> See more </Link>
-    </div>
+    </li>
   );
 };
 AnimeCard.propTypes = {

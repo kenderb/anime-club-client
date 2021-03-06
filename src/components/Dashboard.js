@@ -4,6 +4,7 @@ import PropType from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import AnimeCard from './AnimeCard';
 import { getFavoritesList, getAllAnimes } from '../actions';
+import './Dashboard.style.css';
 
 const Dashboard = ({
   user, getFavoritesList, animes, getAllAnimes,
@@ -18,16 +19,16 @@ const Dashboard = ({
   return (
     <div>
       <h1>
-        Hello
-        {' '}
-        {user.name}
+        Animes
       </h1>
-      {animes.map(anime => (
-        <AnimeCard
-          key={anime.id}
-          anime={anime}
-        />
-      ))}
+      <ul className="anime-wrapper d-flex">
+        {animes.map(anime => (
+          <AnimeCard
+            key={anime.id}
+            anime={anime}
+          />
+        ))}
+      </ul>
     </div>
   );
 };
