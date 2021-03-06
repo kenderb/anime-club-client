@@ -41,6 +41,7 @@
   box-shadow: var(--primary-color) 0px 5px 20px;
 }
 .form-title {
+  font-weight: 300;
   margin-bottom: 0.6em;
 }
 
