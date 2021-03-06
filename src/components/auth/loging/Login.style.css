@@ -1,28 +1,50 @@
 .login-container {
+  margin-top: 30%;
+  height: 100%;
+  padding: 2em 0 10em;
+  flex-direction: column;
   text-align: center;
+  justify-content: space-around;
+  background-image:
+    linear-gradient(to bottom, #ffffff, #ffffffe7,  #ffffff  ),
+    url("../../../assets/images/AnimeBG.jpg");
+  background-position: center;
 }
+
 .input-base {
+  margin-top: 1.5em;
+  width: 18em;
   text-align: center;
   padding: 0.7em 2em;
   background-color: transparent;
   border: rgba(87, 87, 87, 0.685) 1px solid;
   border-radius: 2em;
 }
+
 .form-base {
-  margin-top: 2em;
+  margin-top: 1.2em;
   flex-direction: column;
   align-items: center;
 }
-.form-base input {
-  margin-top: 2em;
-}
 
 .button-base {
+  margin-top: 2em;
   padding: 0.7em 2em;
   border-radius: 2em;
   color: white;
   background-color: var(--primary-color);
   border: none;
   outline: none;
-  box-shadow: var(--primary-color) 0px 1px 15px;
+  box-shadow: var(--primary-color) 1px 5px 10px;
+}
+.button-base:active {
+  box-shadow: var(--primary-color) 0px 5px 20px;
+}
+.form-title {
+  margin-bottom: 0.6em;
+}
+
+.orange-input {
+  border: var(--primary-color) 1px solid;
+  color: var(--primary-color);
 }

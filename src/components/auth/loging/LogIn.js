@@ -27,14 +27,15 @@ const LogIn = ({ user, loginUserAction }) => {
     return <Redirect to="/dashboard" />;
   }
   return (
-    <main className="login-container">
-      <h1>
-        Sign in
-      </h1>
-      <p>Hello there! Sign in and start</p>
-      <p>enjoying the community</p>
+    <main className="login-container d-flex">
+      <div>
+        <h1 className="form-title">
+          Sign in
+        </h1>
+        <p>Hello there! Sign in and start</p>
+        <p>enjoying the community</p>
+      </div>
       <form onSubmit={e => handleSummit(e)} className="d-flex form-base">
-
         <input
           type="email"
           placeholder="email"
@@ -49,7 +50,7 @@ const LogIn = ({ user, loginUserAction }) => {
           value={userData.password}
           name="password"
           onChange={e => handleOnchange(e)}
-          className="input-base"
+          className="input-base orange-input"
         />
         <button type="submit" className="button-base">Sign in</button>
       </form>
