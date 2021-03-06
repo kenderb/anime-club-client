@@ -10,8 +10,11 @@ const AnimeCard = ({ anime }) => {
   return (
     <li className="anime-card">
       <img src={imageUrl} alt={title} className="anime-image" />
-      <p>{title}</p>
-      <Link to={`/animes/${id}`}> See more </Link>
+      <p>
+        {title}
+        <br />
+        <Link to={`/animes/${id}`}> See more </Link>
+      </p>
     </li>
   );
 };

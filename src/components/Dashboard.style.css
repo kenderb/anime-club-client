@@ -2,4 +2,6 @@
   overflow: scroll;
   align-items: center;
   list-style: none;
+  padding-bottom: 2em;
+  padding-top: 1em;
 }
