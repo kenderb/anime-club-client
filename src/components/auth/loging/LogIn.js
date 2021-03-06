@@ -29,11 +29,11 @@ const LogIn = ({ user, loginUserAction }) => {
   return (
     <main className="login-container">
       <h1>
-        User logged in?:
-        {' '}
-        {`${user.loggedIn}`}
+        Sign in
       </h1>
-      <form onSubmit={e => handleSummit(e)}>
+      <p>Hello there! Sign in and start</p>
+      <p>enjoying the community</p>
+      <form onSubmit={e => handleSummit(e)} className="d-flex form-base">
 
         <input
           type="email"
@@ -41,6 +41,7 @@ const LogIn = ({ user, loginUserAction }) => {
           value={userData.email}
           name="email"
           onChange={e => handleOnchange(e)}
+          className="input-base"
         />
         <input
           type="password"
@@ -48,8 +49,9 @@ const LogIn = ({ user, loginUserAction }) => {
           value={userData.password}
           name="password"
           onChange={e => handleOnchange(e)}
+          className="input-base"
         />
-        <button type="submit">Login</button>
+        <button type="submit" className="button-base">Sign in</button>
       </form>
     </main>
   );

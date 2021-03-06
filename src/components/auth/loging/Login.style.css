@@ -1,3 +1,28 @@
 .login-container {
-  background-color: red;
+  text-align: center;
+}
+.input-base {
+  text-align: center;
+  padding: 0.7em 2em;
+  background-color: transparent;
+  border: rgba(87, 87, 87, 0.685) 1px solid;
+  border-radius: 2em;
+}
+.form-base {
+  margin-top: 2em;
+  flex-direction: column;
+  align-items: center;
+}
+.form-base input {
+  margin-top: 2em;
+}
+
+.button-base {
+  padding: 0.7em 2em;
+  border-radius: 2em;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  outline: none;
+  box-shadow: var(--primary-color) 0px 1px 15px;
 }

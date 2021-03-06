@@ -23,3 +23,7 @@ body {
 img {
   width: 100%;
 }
+
+.d-flex {
+  display: flex;
+}
