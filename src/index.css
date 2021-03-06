@@ -9,6 +9,7 @@
   box-sizing: border-box;
 
   --primary-color: #fe4518;
+  --bg-color: #f1f1f1;
 }
 
 *,
@@ -19,6 +20,7 @@
 
 body {
   font-family: 'Hind Siliguri', sans-serif;
+  background-color: var(--bg-color);
 }
 
 img {

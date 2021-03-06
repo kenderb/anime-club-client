@@ -1,4 +1,5 @@
 .anime-wrapper {
   overflow: scroll;
   align-items: center;
+  list-style: none;
 }
