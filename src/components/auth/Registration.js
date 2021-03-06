@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { createUser } from '../../actions';
+import './Form.style.css';
 
 const Registration = ({ user, createUser }) => {
   const [userData, setUserData] = useState({
@@ -29,13 +30,11 @@ const Registration = ({ user, createUser }) => {
     return <Redirect to="/dashboard" />;
   }
   return (
-    <>
-      <h1>
-        User logged in?:
-        {' '}
-        {`${user.loggedIn}`}
+    <main className="login-container d-flex">
+      <h1 className="form-title">
+        Create an account
       </h1>
-      <form onSubmit={e => handleSummit(e)}>
+      <form onSubmit={e => handleSummit(e)} className="d-flex form-base">
 
         <input
           type="text"
@@ -43,6 +42,7 @@ const Registration = ({ user, createUser }) => {
           value={userData.name}
           name="name"
           onChange={e => handleOnchange(e)}
+          className="input-base"
         />
         <input
           type="email"
@@ -50,6 +50,7 @@ const Registration = ({ user, createUser }) => {
           value={userData.email}
           name="email"
           onChange={e => handleOnchange(e)}
+          className="input-base"
         />
         <input
           type="password"
@@ -57,6 +58,7 @@ const Registration = ({ user, createUser }) => {
           value={userData.password}
           name="password"
           onChange={e => handleOnchange(e)}
+          className="input-base orange-input"
         />
         <input
           type="password"
@@ -64,10 +66,14 @@ const Registration = ({ user, createUser }) => {
           value={userData.passwordConfirmation}
           name="passwordConfirmation"
           onChange={e => handleOnchange(e)}
+          className="input-base orange-input"
         />
-        <button type="submit">Submit</button>
+        <button type="submit" className="button-base">Submit</button>
+        <Link to="/login" className="link-base">
+          Sign in
+        </Link>
       </form>
-    </>
+    </main>
   );
 };
 

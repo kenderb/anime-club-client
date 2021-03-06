@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import { loginUserAction } from '../../../actions';
-import './Login.style.css';
+import { loginUserAction } from '../../actions';
+import './Form.style.css';
 
 const LogIn = ({ user, loginUserAction }) => {
   const [userData, setUserData] = useState({
@@ -29,31 +29,33 @@ const LogIn = ({ user, loginUserAction }) => {
   return (
     <main className="login-container d-flex">
       <div>
-        <h1 className="form-title">
-          Sign in
-        </h1>
-        <p>Hello there! Sign in and start</p>
-        <p>enjoying the community</p>
+        <div>
+          <h1 className="form-title">
+            Sign in
+          </h1>
+          <p>Hello there! Sign in and start</p>
+          <p>enjoying the community</p>
+        </div>
+        <form onSubmit={e => handleSummit(e)} className="d-flex form-base">
+          <input
+            type="email"
+            placeholder="email"
+            value={userData.email}
+            name="email"
+            onChange={e => handleOnchange(e)}
+            className="input-base"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={userData.password}
+            name="password"
+            onChange={e => handleOnchange(e)}
+            className="input-base orange-input"
+          />
+          <button type="submit" className="button-base">Sign in</button>
+        </form>
       </div>
-      <form onSubmit={e => handleSummit(e)} className="d-flex form-base">
-        <input
-          type="email"
-          placeholder="email"
-          value={userData.email}
-          name="email"
-          onChange={e => handleOnchange(e)}
-          className="input-base"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={userData.password}
-          name="password"
-          onChange={e => handleOnchange(e)}
-          className="input-base orange-input"
-        />
-        <button type="submit" className="button-base">Sign in</button>
-      </form>
     </main>
   );
 };

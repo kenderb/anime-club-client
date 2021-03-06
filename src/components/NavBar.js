@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropType from 'prop-types';
 import { logoutUser } from '../actions';
+import './NavBar.style.css';
 
 const NavBar = ({ logoutUser, user }) => {
   const handleonclick = () => {
@@ -10,7 +11,7 @@ const NavBar = ({ logoutUser, user }) => {
   };
 
   return (
-    <nav>
+    <nav className="nav-base">
       <ul>
         <li>
           <Link to="/">

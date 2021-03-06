@@ -1,13 +1,13 @@
 .login-container {
-  margin-top: 30%;
-  height: 100%;
-  padding: 2em 0 10em;
+  margin-top: auto;
+  height: 610px;
+  padding: 2em;
   flex-direction: column;
   text-align: center;
-  justify-content: space-around;
+  justify-content: center;
   background-image:
     linear-gradient(to bottom, #ffffff, #ffffffe7,  #ffffff  ),
-    url("../../../assets/images/AnimeBG.jpg");
+    url("../../assets/images/AnimeBG.jpg");
   background-position: center;
 }
 

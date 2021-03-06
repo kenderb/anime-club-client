@@ -27,3 +27,9 @@ img {
 .d-flex {
   display: flex;
 }
+
+.link-base {
+  padding: 2em;
+  color: #646464;
+  text-decoration: none;
+}
