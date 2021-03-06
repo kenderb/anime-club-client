@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { loginUserAction } from '../../actions';
 import './Form.style.css';
 
@@ -39,7 +39,7 @@ const LogIn = ({ user, loginUserAction }) => {
         <form onSubmit={e => handleSummit(e)} className="d-flex form-base">
           <input
             type="email"
-            placeholder="email"
+            placeholder="Email"
             value={userData.email}
             name="email"
             onChange={e => handleOnchange(e)}
@@ -54,6 +54,9 @@ const LogIn = ({ user, loginUserAction }) => {
             className="input-base orange-input"
           />
           <button type="submit" className="button-base">Sign in</button>
+          <Link to="/" className="link-base">
+            Create an account
+          </Link>
         </form>
       </div>
     </main>

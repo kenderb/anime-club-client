@@ -40,13 +40,13 @@ const Registration = ({ user, createUser }) => {
           type="text"
           placeholder="name"
           value={userData.name}
-          name="name"
+          name="Name"
           onChange={e => handleOnchange(e)}
           className="input-base"
         />
         <input
           type="email"
-          placeholder="email"
+          placeholder="Email"
           value={userData.email}
           name="email"
           onChange={e => handleOnchange(e)}
@@ -68,7 +68,7 @@ const Registration = ({ user, createUser }) => {
           onChange={e => handleOnchange(e)}
           className="input-base orange-input"
         />
-        <button type="submit" className="button-base">Submit</button>
+        <button type="submit" className="button-base">Create</button>
         <Link to="/login" className="link-base">
           Sign in
         </Link>
