@@ -43,6 +43,7 @@ const Registration = ({ user, createUser }) => {
           name="name"
           onChange={e => handleOnchange(e)}
           className="input-base"
+          required
         />
         <input
           type="email"
@@ -51,6 +52,7 @@ const Registration = ({ user, createUser }) => {
           name="email"
           onChange={e => handleOnchange(e)}
           className="input-base"
+          required
         />
         <input
           type="password"
@@ -59,6 +61,7 @@ const Registration = ({ user, createUser }) => {
           name="password"
           onChange={e => handleOnchange(e)}
           className="input-base orange-input"
+          required
         />
         <input
           type="password"
@@ -67,6 +70,7 @@ const Registration = ({ user, createUser }) => {
           name="passwordConfirmation"
           onChange={e => handleOnchange(e)}
           className="input-base orange-input"
+          required
         />
         <button type="submit" className="button-base">Create</button>
         <Link to="/login" className="link-base">

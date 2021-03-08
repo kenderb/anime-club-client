@@ -18,42 +18,42 @@ const SideBar = ({ logoutUser, user }) => {
     setmenuActive(name);
     setsideActive(!sideActive);
   };
+  const displayMenu = () => (
+    <>
+      <MenuOutline
+        color="#00000"
+        height="30px"
+        width="30px"
+        onClick={() => setsideActive(!sideActive)}
+      />
+      <aside className={sideActive ? '' : 'd-none'}>
+        <ul className="side-menu d-flex">
+          <li className=" d-flex user-container">
+            <img src={userImage} alt={user.name} className="user-image" />
+            <p>
+              {user.name}
+            </p>
+          </li>
+          <li className={menuActive === 'favorites' ? 'active-mark' : ' '}>
+            <Link to="/favorites" onClick={() => handleActiveMenu('favorites')}>My favorites</Link>
+          </li>
+          <li className={menuActive === 'Dashboard' ? 'active-mark' : ' '}>
+            <Link to="/" onClick={() => handleActiveMenu('Dashboard')}>Dashboard</Link>
+          </li>
+          <li className={menuActive === 'Messages' ? 'active-mark' : ' '}>
+            <Link to="/" onClick={() => handleActiveMenu('Messages')}>Messages</Link>
+          </li>
+          <li className="separator" />
+          <li>
+            <button type="button" onClick={handleonclick}> Logout </button>
+          </li>
+        </ul>
+        <div className="bg-black" onClick={() => setsideActive(!sideActive)} role="presentation" />
+      </aside>
+    </>
+  );
   return (
-    !user.loggedIn ? ' '
-      : (
-        <>
-          <MenuOutline
-            color="#00000"
-            height="30px"
-            width="30px"
-            onClick={() => setsideActive(!sideActive)}
-          />
-          <aside className={sideActive ? '' : 'd-none'}>
-            <ul className="side-menu d-flex">
-              <li className=" d-flex user-container">
-                <img src={userImage} alt={user.name} className="user-image" />
-                <p>
-                  {user.name}
-                </p>
-              </li>
-              <li className={menuActive === 'favorites' ? 'active-mark' : ' '}>
-                <Link to="/favorites" onClick={() => handleActiveMenu('favorites')}>My favorites</Link>
-              </li>
-              <li className={menuActive === 'Dashboard' ? 'active-mark' : ' '}>
-                <Link to="/" onClick={() => handleActiveMenu('Dashboard')}>Dashboard</Link>
-              </li>
-              <li className={menuActive === 'Messages' ? 'active-mark' : ' '}>
-                <Link to="/" onClick={() => handleActiveMenu('Messages')}>Messages</Link>
-              </li>
-              <li className="separator" />
-              <li>
-                <button type="button" onClick={handleonclick}> Logout </button>
-              </li>
-            </ul>
-            <div className="bg-black" onClick={() => setsideActive(!sideActive)} role="presentation" />
-          </aside>
-        </>
-      )
+    !user.loggedIn ? '' : displayMenu()
   );
 };
 

@@ -44,6 +44,7 @@ const LogIn = ({ user, loginUserAction }) => {
             name="email"
             onChange={e => handleOnchange(e)}
             className="input-base"
+            required
           />
           <input
             type="password"
@@ -52,6 +53,7 @@ const LogIn = ({ user, loginUserAction }) => {
             name="password"
             onChange={e => handleOnchange(e)}
             className="input-base orange-input"
+            required
           />
           <button type="submit" className="button-base">Sign in</button>
           <Link to="/" className="link-base">
