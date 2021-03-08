@@ -6,7 +6,7 @@
   text-align: center;
   justify-content: center;
   background-image:
-    linear-gradient(to bottom, var(--bg-color), #ffffffe7,  var(--bg-color)  ),
+    linear-gradient(to bottom, var(--bg-color), #ffffffe7, var(--bg-color)),
     url("../../assets/images/AnimeBG.jpg");
   background-position: center;
 }
@@ -37,9 +37,11 @@
   outline: none;
   box-shadow: var(--primary-color) 1px 5px 10px;
 }
+
 .button-base:active {
-  box-shadow: var(--primary-color) 0px 5px 20px;
+  box-shadow: var(--primary-color) 0 5px 20px;
 }
+
 .form-title {
   font-weight: 300;
   margin-bottom: 0.6em;

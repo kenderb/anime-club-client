@@ -4,6 +4,7 @@
   height: 24em;
   object-fit: cover;
 }
+
 .anime-card {
   border-radius: 5px;
   margin: 0.7em;
@@ -14,9 +15,11 @@
 .anime-card h1 {
   font-size: 1em;
 }
+
 .anime-card p {
   padding: 1em;
 }
+
 .anime-card a {
   color: var(--primary-color);
   text-decoration: none;

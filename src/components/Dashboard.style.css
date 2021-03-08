@@ -6,13 +6,16 @@
   padding-top: 1em;
   scrollbar-width: none;
 }
+
 .anime-wrapper::-webkit-scrollbar {
   display: none;
 }
+
 .dashboard-title {
   font-weight: 300;
   text-align: center;
 }
+
 .anime-count-container {
   text-align: center;
   font-weight: 600;

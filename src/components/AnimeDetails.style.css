@@ -4,13 +4,16 @@
   font-size: 1em;
   text-align: center;
 }
+
 .detail-container img {
   object-fit: cover;
   height: 20em;
 }
+
 .detail-container p {
   padding: 1em;
 }
+
 .detail-container button {
   width: 100%;
   padding: 1em;

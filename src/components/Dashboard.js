@@ -10,7 +10,6 @@ const Dashboard = ({
   user, getFavoritesList, animes, getAllAnimes,
 }) => {
   const [currentNumber, setCurrentUser] = useState(1);
-  if (!user.loggedIn) return <Redirect to="/" />;
 
   useEffect(() => {
     getFavoritesList({ userId: user.id });
@@ -20,6 +19,7 @@ const Dashboard = ({
   const handleCurrentSelect = id => {
     setCurrentUser(id);
   };
+  if (!user.loggedIn) return <Redirect to="/login" />;
   return (
     <div>
       <h1 className="dashboard-title">
