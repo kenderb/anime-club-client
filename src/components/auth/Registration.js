@@ -38,9 +38,9 @@ const Registration = ({ user, createUser }) => {
 
         <input
           type="text"
-          placeholder="name"
+          placeholder="Name"
           value={userData.name}
-          name="Name"
+          name="name"
           onChange={e => handleOnchange(e)}
           className="input-base"
         />

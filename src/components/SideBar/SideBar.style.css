@@ -21,7 +21,9 @@
 }
 
 .side-menu button {
+  font-size: 1em;
   border: none;
+  padding: 1em 0;
 }
 
 .user-container {
@@ -46,4 +48,22 @@
 
 .d-none {
   display: none;
+}
+
+.user-image {
+  opacity: 0.3;
+  width: 8em;
+  padding: 1em;
+  margin: 1em;
+}
+
+.user-container {
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.active-mark {
+  padding-left: 0.3em;
+  background-color: #eeeeee9a;
+  border-left: var(--primary-color) solid 4px;
 }

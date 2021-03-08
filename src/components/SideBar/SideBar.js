@@ -5,12 +5,18 @@ import PropType from 'prop-types';
 import { MenuOutline } from 'react-ionicons';
 import { logoutUser } from '../../actions';
 import './SideBar.style.css';
+import userImage from '../../assets/images/userDefault.svg';
 
 const SideBar = ({ logoutUser, user }) => {
   const [sideActive, setsideActive] = useState(false);
+  const [menuActive, setmenuActive] = useState('Dashboard');
   const handleonclick = () => {
     setsideActive(false);
     logoutUser();
+  };
+  const handleActiveMenu = name => {
+    setmenuActive(name);
+    setsideActive(!sideActive);
   };
   return (
     !user.loggedIn ? ' '
@@ -25,19 +31,19 @@ const SideBar = ({ logoutUser, user }) => {
           <aside className={sideActive ? '' : 'd-none'}>
             <ul className="side-menu d-flex">
               <li className=" d-flex user-container">
-                <img src="" alt={user.name} />
+                <img src={userImage} alt={user.name} className="user-image" />
                 <p>
                   {user.name}
                 </p>
               </li>
-              <li>
-                <Link to="/favorites" onClick={() => setsideActive(!sideActive)}>My favorites</Link>
+              <li className={menuActive === 'favorites' ? 'active-mark' : ' '}>
+                <Link to="/favorites" onClick={() => handleActiveMenu('favorites')}>My favorites</Link>
               </li>
-              <li>
-                <Link to="/" onClick={() => setsideActive(!sideActive)}>Dashboard</Link>
+              <li className={menuActive === 'Dashboard' ? 'active-mark' : ' '}>
+                <Link to="/" onClick={() => handleActiveMenu('Dashboard')}>Dashboard</Link>
               </li>
-              <li>
-                <Link to="/" onClick={() => setsideActive(!sideActive)}>Messages</Link>
+              <li className={menuActive === 'Messages' ? 'active-mark' : ' '}>
+                <Link to="/" onClick={() => handleActiveMenu('Messages')}>Messages</Link>
               </li>
               <li className="separator" />
               <li>
