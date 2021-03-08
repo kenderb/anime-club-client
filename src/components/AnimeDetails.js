@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { fetchAnimeDetail, setFavoriteAnime } from '../actions';
+import './AnimeDetails.style.css';
 
 const AnimeDetails = ({
   match, animeDetails, user, setFavoriteAnime, favorites,
@@ -22,9 +23,9 @@ const AnimeDetails = ({
   if (!user.loggedIn) return <Redirect to="/" />;
 
   return (
-    <div>
+    <div className="detail-container">
       <h1>{title}</h1>
-      <img src={imageUrl} alt={title} className="anime-image" />
+      <img src={imageUrl} alt={title} />
       <p>{description}</p>
       {
         favorites.includes(Number(id)) ? <button type="button" disabled> it is in your favorites</button>

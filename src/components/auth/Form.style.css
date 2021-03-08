@@ -6,7 +6,7 @@
   text-align: center;
   justify-content: center;
   background-image:
-    linear-gradient(to bottom, #ffffff, #ffffffe7,  #ffffff  ),
+    linear-gradient(to bottom, var(--bg-color), #ffffffe7,  var(--bg-color)  ),
     url("../../assets/images/AnimeBG.jpg");
   background-position: center;
 }
