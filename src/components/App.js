@@ -9,6 +9,7 @@ import NavBar from './NavBar';
 import Home from './Home';
 import AnimeDetails from './AnimeDetails';
 import { isLoggedIn } from '../actions';
+import SideBar from './SideBar/SideBar';
 
 const App = ({ isLoggedIn }) => {
   useEffect(() => {
@@ -17,6 +18,7 @@ const App = ({ isLoggedIn }) => {
   return (
     <Router>
       <NavBar />
+      <SideBar />
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/login" component={LogIn} exact />

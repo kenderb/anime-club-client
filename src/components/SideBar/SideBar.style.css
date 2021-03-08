@@ -1,0 +1,13 @@
+.side-menu {
+  padding: 1em;
+  width: 11em;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  box-shadow: rgba(129, 129, 129, 0.356) 10px 5px 10px;
+}
+.side-menu button {
+  
+}
