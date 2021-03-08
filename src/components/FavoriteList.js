@@ -1,27 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import './Dashboard.style.css';
+import AnimeCard from './AnimeCard';
 
 const FavoriteList = ({ favorites, user, animes }) => {
   const myfavorites = animes.filter(anime => favorites.includes(anime.id));
-
+  const [currentNumber, setCurrentUser] = useState(1);
+  const handleCurrentSelect = id => {
+    setCurrentUser(id);
+  };
   if (!user.loggedIn) return <Redirect to="/" />;
 
   return (
     <div>
-      <h1>
+      <h1 className="dashboard-title">
         My favorite List:
       </h1>
-      <ul>
+      <ul className="anime-wrapper d-flex">
         {
         myfavorites.map(anime => (
-          <li key={anime.id}>
-            <img src={anime.url_image} alt={anime.title} className="anime-image" />
-          </li>
+          <AnimeCard
+            key={anime.id}
+            anime={anime}
+            onClickImage={() => handleCurrentSelect(anime.id)}
+          />
         ))
       }
       </ul>
+      <div className="anime-count-container">
+        {currentNumber}
+        /
+        {myfavorites.length}
+      </div>
     </div>
   );
 };
