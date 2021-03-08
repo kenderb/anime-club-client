@@ -16,7 +16,7 @@ const FavoriteList = ({ favorites, user, animes }) => {
   return (
     <div>
       <h1 className="dashboard-title">
-        My favorite List:
+        My favorite list
       </h1>
       <ul className="anime-wrapper d-flex">
         {

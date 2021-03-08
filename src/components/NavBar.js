@@ -12,22 +12,26 @@ const NavBar = ({ logoutUser, user }) => {
   };
 
   return (
-    <nav className="nav-base">
-      <ul className="d-flex">
-        {!user.loggedIn ? ' '
-          : (
-            <li>
-              <MenuOutline
-                color="#00000"
-                height="30px"
-                width="30px"
-              />
-              <Link to="/favorites">My favorites</Link>
-              <button type="button" onClick={handleonclick}> Logout </button>
-            </li>
-          )}
-      </ul>
-    </nav>
+    <>
+      <nav className="nav-base">
+        <ul className="d-flex">
+          {!user.loggedIn ? ' '
+            : (
+              <li>
+                <MenuOutline
+                  color="#00000"
+                  height="30px"
+                  width="30px"
+                />
+              </li>
+            )}
+        </ul>
+      </nav>
+      <aside className="nav-menu">
+        <Link to="/favorites">My favorites</Link>
+        <button type="button" onClick={handleonclick}> Logout </button>
+      </aside>
+    </>
   );
 };
 const mapStateToprops = state => ({

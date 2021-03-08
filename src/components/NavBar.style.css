@@ -1,3 +1,10 @@
+.nav-menu {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  flex-direction: column;
+  background-color: red;
+}
 .nav-base {
-  
+  z-index: 1;
 }
