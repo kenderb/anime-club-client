@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { ChevronBackOutline, SearchOutline } from 'react-ionicons';
 import { fetchAnimeDetail, setFavoriteAnime } from '../actions';
 import './AnimeDetails.style.css';
 
@@ -24,7 +25,21 @@ const AnimeDetails = ({
 
   return (
     <div className="detail-container">
-      <h1>{title}</h1>
+      <h1 className="d-flex">
+        <Link to="/">
+          <ChevronBackOutline
+            color="#00000"
+            height="25px"
+            width="25px"
+          />
+        </Link>
+        {title}
+        <SearchOutline
+          color="#00000"
+          height="25px"
+          width="25px"
+        />
+      </h1>
       <img src={imageUrl} alt={title} />
       <p>{description}</p>
       {
