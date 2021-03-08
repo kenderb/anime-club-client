@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
 import { Redirect } from 'react-router-dom';
@@ -9,6 +9,7 @@ import './Dashboard.style.css';
 const Dashboard = ({
   user, getFavoritesList, animes, getAllAnimes,
 }) => {
+  const [currentNumber, setCurrentUser] = useState(1);
   if (!user.loggedIn) return <Redirect to="/" />;
 
   useEffect(() => {
@@ -16,6 +17,9 @@ const Dashboard = ({
     getAllAnimes();
   }, []);
 
+  const handleCurrentSelect = id => {
+    setCurrentUser(id);
+  };
   return (
     <div>
       <h1 className="dashboard-title">
@@ -26,9 +30,15 @@ const Dashboard = ({
           <AnimeCard
             key={anime.id}
             anime={anime}
+            onClickImage={() => handleCurrentSelect(anime.id)}
           />
         ))}
       </ul>
+      <div className="anime-count-container">
+        {currentNumber}
+        /
+        {animes.length}
+      </div>
     </div>
   );
 };
