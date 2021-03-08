@@ -9,6 +9,7 @@ import './SideBar.style.css';
 const SideBar = ({ logoutUser, user }) => {
   const [sideActive, setsideActive] = useState(false);
   const handleonclick = () => {
+    setsideActive(false);
     logoutUser();
   };
   return (
