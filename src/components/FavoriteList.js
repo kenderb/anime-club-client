@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import './Dashboard.style.css';
+import './Dashboard/Dashboard.style.css';
 import AnimeCard from './AnimeCard';
 
 const FavoriteList = ({ favorites, user, animes }) => {

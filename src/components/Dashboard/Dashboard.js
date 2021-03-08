@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import AnimeCard from './AnimeCard';
-import { getFavoritesList, getAllAnimes } from '../actions';
+import AnimeCard from '../AnimeCard';
+import { getFavoritesList, getAllAnimes } from '../../actions';
 import './Dashboard.style.css';
 
 const Dashboard = ({

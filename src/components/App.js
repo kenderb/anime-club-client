@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
 import LogIn from './auth/LogIn';
-import Dashboard from './Dashboard';
+import Dashboard from './Dashboard/Dashboard';
 import FavoriteList from './FavoriteList';
 import Home from './Home';
 import AnimeDetails from './AnimeDetails';

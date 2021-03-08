@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { ChevronBackOutline, SearchOutline } from 'react-ionicons';
-import { fetchAnimeDetail, setFavoriteAnime } from '../actions';
+import { fetchAnimeDetail, setFavoriteAnime } from '../../actions';
 import './AnimeDetails.style.css';
 
 const AnimeDetails = ({
