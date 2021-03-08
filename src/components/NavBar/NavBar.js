@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
 import { MenuOutline } from 'react-ionicons';
-import { logoutUser } from '../actions';
+import { logoutUser } from '../../actions';
+import './NavBar.style.css';
 
 const NavBar = ({ user }) => (
   <>
-    <nav>
+    <nav className="navBar-container">
       <ul className="d-flex">
         {!user.loggedIn ? ' '
           : (

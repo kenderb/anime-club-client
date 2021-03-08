@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import LogIn from './auth/LogIn';
 import Dashboard from './Dashboard';
 import FavoriteList from './FavoriteList';
-import NavBar from './NavBar';
+// import NavBar from './NavBar/NavBar';
 import Home from './Home';
 import AnimeDetails from './AnimeDetails';
 import { isLoggedIn } from '../actions';
-import SideBar from './SideBar/SideBar';
+import SideBar from './SideBar';
 
 const App = ({ isLoggedIn }) => {
   useEffect(() => {
@@ -17,7 +17,7 @@ const App = ({ isLoggedIn }) => {
   }, []);
   return (
     <Router>
-      <NavBar />
+      {/* <NavBar /> */}
       <SideBar />
       <Switch>
         <Route path="/" component={Home} exact />
