@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogIn component renders correctly 1`] = `
+<main
+  className="login-container d-flex"
+>
+  <div>
+    <div>
+      <h1
+        className="form-title"
+      >
+        Sign in
+      </h1>
+      <p>
+        Hello there! Sign in and start
+      </p>
+      <p>
+        enjoying the community
+      </p>
+    </div>
+    <form
+      className="d-flex form-base"
+      onSubmit={[Function]}
+    >
+      <input
+        className="input-base"
+        name="email"
+        onChange={[Function]}
+        placeholder="Email"
+        required={true}
+        type="email"
+        value=""
+      />
+      <input
+        className="input-base orange-input"
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        required={true}
+        type="password"
+        value=""
+      />
+      <button
+        className="button-base"
+        type="submit"
+      >
+        Sign in
+      </button>
+      <a
+        className="link-base"
+        href="/"
+        onClick={[Function]}
+      >
+        Create an account
+      </a>
+    </form>
+  </div>
+</main>
+`;
