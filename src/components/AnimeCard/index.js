@@ -20,7 +20,11 @@ const AnimeCard = ({ anime, onClickImage }) => {
 };
 AnimeCard.propTypes = {
   anime: PropType.instanceOf(Object).isRequired,
-  onClickImage: PropType.func.isRequired,
+  onClickImage: PropType.func,
+};
+
+AnimeCard.defaultProps = {
+  onClickImage: () => {},
 };
 
 const mapStateToprops = state => ({
