@@ -14,10 +14,15 @@
   padding: 1em;
 }
 
-.detail-container button {
+.favorite-button-base {
   width: 100%;
   padding: 1em;
   color: white;
   border: none;
   background-color: var(--primary-color);
+}
+
+.favorite-desable {
+  color: #e6e6e6;
+  background-color: #8383835d;
 }
