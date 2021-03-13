@@ -51,12 +51,13 @@ const mapStateToprops = state => ({
 
 Dashboard.propTypes = {
   user: PropType.instanceOf(Object).isRequired,
-  match: PropType.instanceOf(Object).isRequired,
+  match: PropType.instanceOf(Object),
   animes: PropType.instanceOf(Array),
   getFavoritesList: PropType.func.isRequired,
   getAllAnimes: PropType.func.isRequired,
 };
 Dashboard.defaultProps = {
   animes: [],
+  match: {},
 };
 export default connect(mapStateToprops, { getFavoritesList, getAllAnimes })(Dashboard);
