@@ -7,7 +7,7 @@ import { getFavoritesList, getAllAnimes } from '../../actions';
 import './Dashboard.style.css';
 
 const Dashboard = ({
-  user, getFavoritesList, animes, getAllAnimes,
+  user, getFavoritesList, animes, getAllAnimes, match,
 }) => {
   const [currentNumber, setCurrentUser] = useState(1);
 
@@ -20,6 +20,7 @@ const Dashboard = ({
     setCurrentUser(id);
   };
   if (!user.loggedIn) return <Redirect to="/login" />;
+
   return (
     <div>
       <h1 className="dashboard-title">
@@ -31,6 +32,7 @@ const Dashboard = ({
             key={anime.id}
             anime={anime}
             onClickImage={() => handleCurrentSelect(anime.id)}
+            previusPath={match.path}
           />
         ))}
       </ul>
@@ -49,6 +51,7 @@ const mapStateToprops = state => ({
 
 Dashboard.propTypes = {
   user: PropType.instanceOf(Object).isRequired,
+  match: PropType.instanceOf(Object).isRequired,
   animes: PropType.instanceOf(Array),
   getFavoritesList: PropType.func.isRequired,
   getAllAnimes: PropType.func.isRequired,

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { ChevronBackOutline, SearchOutline } from 'react-ionicons';
 import { fetchAnimeDetail, setFavoriteAnime } from '../../actions';
 import './AnimeDetails.style.css';
@@ -12,6 +12,7 @@ const AnimeDetails = ({
 }) => {
   const { id } = match.params;
   const { title, url_image: imageUrl, description } = animeDetails;
+  const history = useHistory();
 
   const handleFavorite = () => {
     setFavoriteAnime({ userId: user.id, animeId: id });
@@ -19,6 +20,7 @@ const AnimeDetails = ({
 
   useEffect(() => {
     fetchAnimeDetail(id);
+    history.goBack();
   }, [fetchAnimeDetail]);
 
   if (!user.loggedIn) return <Redirect to="/" />;
@@ -26,13 +28,12 @@ const AnimeDetails = ({
   return (
     <div className="detail-container">
       <h1 className="d-flex">
-        <Link to="/favorites">
-          <ChevronBackOutline
-            color="#00000"
-            height="25px"
-            width="25px"
-          />
-        </Link>
+        <ChevronBackOutline
+          color="#00000"
+          height="25px"
+          width="25px"
+          onClick={() => history.goBack()}
+        />
         {title}
         <SearchOutline
           color="#00000"
