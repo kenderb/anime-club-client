@@ -43,8 +43,7 @@ const AnimeDetails = ({
       <img src={imageUrl} alt={title} />
       <p>{description}</p>
       {
-        favorites.includes(Number(id)) ? <button type="button" className="favorite-button-base favorite-desable " disabled> Mark as favorite</button>
-          : <button type="button" onClick={handleFavorite} className="favorite-button-base">Mark as favorite</button>
+        favorites.includes(Number(id)) ? '' : <button type="button" onClick={handleFavorite} className="favorite-button-base">Mark as favorite</button>
       }
     </div>
   );
