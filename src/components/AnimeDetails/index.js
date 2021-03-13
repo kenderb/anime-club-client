@@ -26,7 +26,7 @@ const AnimeDetails = ({
   return (
     <div className="detail-container">
       <h1 className="d-flex">
-        <Link to="/">
+        <Link to="/favorites">
           <ChevronBackOutline
             color="#00000"
             height="25px"
