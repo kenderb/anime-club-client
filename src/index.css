@@ -1,13 +1,38 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  box-sizing: border-box;
+
+  --primary-color: #fe4518;
+  --bg-color: #f1f1f1;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Hind Siliguri', sans-serif;
+  background-color: var(--bg-color);
+}
+
+img {
+  width: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.link-base {
+  padding: 2em;
+  color: #646464;
+  text-decoration: none;
 }

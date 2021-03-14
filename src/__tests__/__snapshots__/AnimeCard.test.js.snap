@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnimeCard renders correctly 1`] = `
+<li
+  className="anime-card"
+  onClick={[Function]}
+  role="presentation"
+>
+  <img
+    alt="some title"
+    className="anime-image"
+  />
+  <p>
+    some title
+    <br />
+    <a
+      href="/animes/undefined"
+      onClick={[Function]}
+    >
+       See more 
+    </a>
+  </p>
+</li>
+`;

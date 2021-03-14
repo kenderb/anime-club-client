@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# ANIME CLUB CLIENT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> This project is a mobile single page application built with React and Redux, All data used in the app was retrieved from the API created using Ruby on Rails and is stored in the Redux store, also you can create an account and mark some Animes as favourites.
+## Built With
 
-## Available Scripts
+- React.
+- Redux.
+- redux-thunk.
+- axios.
 
-In the project directory, you can run:
+## Demo Screenshots
 
-### `yarn start`
+![screenshot](Capture_01.png)
+![screenshot](Capture_02.png)
+![screenshot](Capture_03.png)
+![screenshot](Capture_04.png)
+![screenshot](Capture_05.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Live Demo
 
-### `yarn test`
+[Live version](https://optimistic-khorana-f202db.netlify.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Prerequisites
 
-### `yarn build`
+node: v12.19.0
+## Getting Started
+To get a local copy up and running follow these simple example steps.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Open a terminal or command prompt interface on your PC.
+- Clone the repo with: `git clone https://github.com/kenderb/anime-club-client.git`
+- On the terminal navigate to the project directory using `cd anime-club-client/`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📝 Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. On the terminal navigate to the project directory using `cd anime-club-client/`.
+2. Install dependencies using: `npm install`.
+2. Run a server using: `npm start`.
+3. Open `http://localhost:3000/` in your browser or open the index.html on your browser.
 
-### `yarn eject`
+## :straight_ruler: Running test
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. On the terminal navigate to the project directory using `cd anime-club-client/`.
+2. Run the test with: `npm test`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Authors
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+👤 **Kender Bolivar**
 
-## Learn More
+- GitHub: [@kenderb](https://github.com/ken)
+- Twitter: [@KBTarts](https://twitter.com/KBTarts )
+- LinkedIn: [KenderBolivar](https://www.linkedin.com/in/kender-bolivar-1736086b/ )
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🤝 Contributing
 
-### Code Splitting
+Contributions, issues and feature requests are welcome!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Feel free to check the [issues page](https://github.com/kenderb/anime-club-client/issues).
 
-### Analyzing the Bundle Size
+## Show your support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Give a ⭐️ if you like this project!
 
-### Making a Progressive Web App
+## :grey_exclamation: Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Stack Overflow.
+- Odin Project.
+- [Design by Alexey Savitskiy](https://www.behance.net/gallery/37706679/Circle-(Landing-page-Dashboard-Mobile-App)).
 
-### Advanced Configuration
+## 📝 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT LICENSE](LICENSE)

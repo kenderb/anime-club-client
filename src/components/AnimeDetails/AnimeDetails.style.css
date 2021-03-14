@@ -1,0 +1,28 @@
+.detail-container h1 {
+  justify-content: space-between;
+  margin: 1em;
+  font-size: 1em;
+  text-align: center;
+}
+
+.detail-container img {
+  object-fit: cover;
+  height: 20em;
+}
+
+.detail-container p {
+  padding: 1em;
+}
+
+.favorite-button-base {
+  width: 100%;
+  padding: 1em;
+  color: white;
+  border: none;
+  background-color: var(--primary-color);
+}
+
+.favorite-desable {
+  color: #e6e6e6;
+  background-color: #8383835d;
+}
